@@ -4,22 +4,27 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import static com.pluralsight.candycoded.DetailActivity.HASHTAG_CANDYCODED;
+import static com.pluralsight.candycoded.DetailActivity.SHARE_DESCRIPTION;
+
 public class InfoActivity extends AppCompatActivity {
+
+    private final Uri mCandyImageUrl = Uri.parse("android.resource://com.codeschool.candycoded/" + R.drawable.store_front);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        Uri uri = Uri.parse("android.resource://com.codeschool.candycoded/" + R.drawable.store_front);
         ImageView candyStoreImageView = (ImageView)findViewById(R.id.image_view_candy_store);
         Picasso.with(this).
-                load(uri).
+                load(mCandyImageUrl).
                 into(candyStoreImageView);
 
 
